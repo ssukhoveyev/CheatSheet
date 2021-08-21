@@ -1,0 +1,7 @@
+set Var1=D:\Work
+set Var2=100
+set Var3="Привет Мир!!!"
+
+echo %Var3%
+echo %VAR3%
+echo %vAr3%
