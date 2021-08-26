@@ -16,6 +16,8 @@ namespace XmlApp
             person.name = "Сергей";
             person.age = 18;
 
+
+            //Сохранть обьект в XML
             using (FileStream stream = new FileStream("person.xml", FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Person));
@@ -23,7 +25,7 @@ namespace XmlApp
                 stream.Close();
             }
 
-
+            //Загрузить обьект из XML
             using (Stream stream = new FileStream("person.xml", FileMode.Open))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Person));
