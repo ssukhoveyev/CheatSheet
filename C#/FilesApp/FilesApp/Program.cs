@@ -73,6 +73,12 @@ namespace FilesApp
                 Console.WriteLine(d);
             #endregion
 
+            #region Проверить наличие папки, если нет то создать
+            string pathMyDir = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            if (!Directory.Exists(pathMyDir + "\\Dir"))
+                Directory.CreateDirectory(pathMyDir + "\\Dir");
+            #endregion
+
             Console.ReadKey();
         }
     }
