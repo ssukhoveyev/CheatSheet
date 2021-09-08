@@ -36,6 +36,7 @@ namespace FilesApp
             Console.WriteLine("Полный путь к файлу: " + new DirectoryInfo("file.txt").FullName);
             Console.WriteLine("Каталог в котором лежит файл: " + new DirectoryInfo("file.txt").Parent );
             Console.WriteLine("Расширение файла: " + new DirectoryInfo("file.txt").Extension);
+            Console.WriteLine("Название файла: " + Path.GetFileNameWithoutExtension("file.txt"));
 
             //Прочитать строку из файла
             Console.WriteLine("Строка из файла file.txt: " + File.ReadAllText(@"file.txt"));
