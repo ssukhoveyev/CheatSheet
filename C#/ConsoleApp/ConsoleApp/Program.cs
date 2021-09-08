@@ -16,6 +16,12 @@ namespace ConsoleApp
             Console.ResetColor();
             Console.WriteLine("Сбросили цвет");
 
+
+            Console.ReadKey();
+
+            Console.Clear();
+            Console.WriteLine("Очистили экран");
+
             Console.ReadKey();
         }
     }
