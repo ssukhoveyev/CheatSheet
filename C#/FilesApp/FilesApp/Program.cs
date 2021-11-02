@@ -17,6 +17,8 @@ namespace FilesApp
             string fullPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + @"\MyProject.exe";
             Console.WriteLine("Путь к файлу приложения " + fullPath);
 
+            //Путь к рабочему столу пользователя
+
             //Сохраняем строку в файл
             StreamWriter streamWriter = File.CreateText("file1.txt");
             streamWriter.WriteLine("Строка в файле 1.");
@@ -37,6 +39,7 @@ namespace FilesApp
             Console.WriteLine("Каталог в котором лежит файл: " + new DirectoryInfo("file.txt").Parent );
             Console.WriteLine("Расширение файла: " + new DirectoryInfo("file.txt").Extension);
             Console.WriteLine("Название файла: " + Path.GetFileNameWithoutExtension("file.txt"));
+            Console.WriteLine("Название файла с расширением: " + Path.GetFileName("file.txt"));
 
             //Прочитать строку из файла
             Console.WriteLine("Строка из файла file.txt: " + File.ReadAllText(@"file.txt"));
