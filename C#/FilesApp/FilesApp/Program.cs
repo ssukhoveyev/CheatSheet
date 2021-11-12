@@ -83,7 +83,22 @@ namespace FilesApp
                 Directory.CreateDirectory(pathMyDir + "\\Dir");
             #endregion
 
+            #region Генерация файла заданного размера
+            string fPath = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+            fullPath = fPath + @"/10mb.txt";
+            generateFileBySize(10, fullPath);
+            #endregion
+
             Console.ReadKey();
+            
+        }
+
+        public static void generateFileBySize(long sizeInMb, string filePath)
+        {
+            byte[] data = new byte[sizeInMb * 1024 * 1024];
+            Random rng = new Random();
+            rng.NextBytes(data);
+            File.WriteAllBytes(filePath, data);
         }
     }
 }
