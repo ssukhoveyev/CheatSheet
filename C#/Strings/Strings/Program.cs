@@ -27,6 +27,10 @@ namespace Strings
             //Оставить в строке только цифры
             Console.WriteLine(Regex.Replace("Строка2222", @"[^0-9$,]", ""));
 
+            //Формат числа в строке
+            decimal x = 100000.0700m;
+            Console.WriteLine(x.ToString("N2"));
+
             Console.ReadKey();
         }
     }
