@@ -11,6 +11,7 @@ namespace DateTimeApp
         static void Main(string[] args)
         {
             //За месяц
+            Console.WriteLine("За месяц ----------------------------------------");
             if (true)
             {
                 DateTime date = Convert.ToDateTime("2019-12-01");
@@ -27,6 +28,7 @@ namespace DateTimeApp
             }
 
             //За период
+            Console.WriteLine("За период ----------------------------------------");
             if (true)
             {
                 DateTime dtStart = Convert.ToDateTime("2019-12-25");
@@ -46,6 +48,7 @@ namespace DateTimeApp
             }
 
             //Выполнение события с определенной даты
+            Console.WriteLine("Событие с опредленной даты ----------------------------------------");
             if (true)
             {
                 DateTime dt = Convert.ToDateTime("2021-09-01");
@@ -61,6 +64,7 @@ namespace DateTimeApp
             }
 
             //unixtimestamp
+            Console.WriteLine("unixtimestamp ----------------------------------------");
             if (true)
             {
                 //Текущее время по гринвичу в unixtimestamp
@@ -76,6 +80,18 @@ namespace DateTimeApp
                 dtDateTime = dtDateTime.AddSeconds(unixTimestampMyTime).ToLocalTime();
                 Console.WriteLine(dtDateTime.ToString());
             }
+
+            Console.WriteLine("День недели ----------------------------------------");
+            if (true)
+            {
+                //DateTime dt = new DateTime(2003, 5, 1);
+                DateTime dt = DateTime.Now;
+                Console.WriteLine("Сегодня: {0:d} is {1}.", dt, dt.DayOfWeek);
+
+                if (dt.DayOfWeek == DayOfWeek.Friday)
+                    Console.WriteLine("Сегодня пятница!");
+            }
+
             Console.ReadKey();
         }
     }
