@@ -17,9 +17,11 @@ namespace CompInfoApp
 
             //CPUTime();
 
-            //Fan();
+            Fan();
 
-            VideoController();
+            //VideoController();
+
+            //CPUTemp();
 
             Console.ReadKey();
         }
@@ -53,7 +55,7 @@ namespace CompInfoApp
         public static void Fan()
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(
-                "SELECT DesiredSpeed FROM Win32_Fan");
+                "SELECT * FROM Win32_Fan");
             ManagementObjectCollection information = searcher.Get();
             foreach (ManagementObject obj in information)
             {
@@ -66,6 +68,20 @@ namespace CompInfoApp
         {
             ManagementObjectSearcher searcher = new ManagementObjectSearcher(
                 "SELECT Caption, AdapterRAM FROM Win32_VideoController");
+            ManagementObjectCollection information = searcher.Get();
+            foreach (ManagementObject obj in information)
+            {
+                foreach (PropertyData data in obj.Properties)
+                    Console.WriteLine("{0} = {1}", data.Name, data.Value);
+            }
+        }
+
+        public static void CPUTemp()
+        {
+            //CurrentTemperatureRaw*0.1 - 273.15
+
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(@"root\WMI",
+                "SELECT * FROM MSAcpi_ThermalZoneTemperature");
             ManagementObjectCollection information = searcher.Get();
             foreach (ManagementObject obj in information)
             {
