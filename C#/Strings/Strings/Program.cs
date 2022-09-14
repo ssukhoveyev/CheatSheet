@@ -31,6 +31,40 @@ namespace Strings
             decimal x = 100000.0700m;
             Console.WriteLine(x.ToString("N2"));
 
+            #region Соединяем строки
+            List<string> listString = new List<string>();
+            listString.Add("String1");
+            listString.Add("String2");
+            listString.Add("String3");
+
+            StringBuilder sb = new StringBuilder();
+            foreach(string s in listString)
+                sb.Append(s);
+            Console.WriteLine(sb);
+
+            Console.WriteLine(string.Join(",", listString));
+
+            string phrase = listString.Aggregate((partialPhrase, word) => $"{partialPhrase},{word}");
+            Console.WriteLine(phrase);
+
+            #endregion
+
+            #region Сравнение строк
+
+            string emptyString = "";
+
+            Console.WriteLine(emptyString != "");
+            Console.WriteLine(emptyString.Length != 0);
+            Console.WriteLine(String.IsNullOrEmpty(emptyString));
+
+
+            string string1 = "Hello World";
+            Console.WriteLine(string1.Equals("Hello World"));
+
+            
+
+            #endregion
+
             Console.ReadKey();
         }
     }
